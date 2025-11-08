@@ -1,0 +1,23 @@
+# --- Window settings ---
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 800
+FPS = 60
+TITLE = "RFICS Arena"
+
+# --- Arena settings ---
+ARENA_WIDTH = 400
+ARENA_HEIGHT = 400
+ARENA_BORDER_THICKNESS = 5
+ARENA_BORDER_COLOR = (255, 255, 255)
+BACKGROUND_COLOR = (0, 0, 0)
+
+ARENA_LEFT = (WINDOW_WIDTH - ARENA_WIDTH) // 2
+ARENA_TOP = (WINDOW_HEIGHT - ARENA_HEIGHT) // 2
+
+# --- Player settings ---
+PLAYER_STARTING_RADIUS = 20
+
+# --- Colors ---
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
