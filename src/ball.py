@@ -32,23 +32,17 @@ class Ball:
         if self.position[0] - self.radius <= arena.border.left + arena.border_thickness:
             self.position[0] = arena.border.left + self.radius + arena.border_thickness
             self.velocity[0] *= -1
-            self.take_damage(1)
         # right
         if self.position[0] + self.radius >= arena.border.right - arena.border_thickness:
             self.position[0] = arena.border.right - self.radius - arena.border_thickness
             self.velocity[0] *= -1
-            self.take_damage(1)
-
         # top
         if self.position[1] - self.radius <= arena.border.top + arena.border_thickness:
             self.position[1] = arena.border.top + self.radius + arena.border_thickness
             self.velocity[1] *= -1
-            self.take_damage(1)
-
         # bottom
         if self.position[1] + self.radius >= arena.border.bottom - arena.border_thickness:
             self.position[1] = arena.border.bottom - self.radius - arena.border_thickness
             self.velocity[1] *= -1
-            self.take_damage(1)
 
     
