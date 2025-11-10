@@ -14,16 +14,17 @@ if __name__ == "__main__":
     player_1 = Ball(
         position=(cfg.WINDOW_WIDTH // 4+ 100, cfg.WINDOW_HEIGHT // 2),
         radius=cfg.PLAYER_BASE_RADIUS,
-        color=cfg.RED,
+        color=cfg.YELLOW,
         velocity=(-10, 0),
-        mass=1.0
+        health=3
     )
 
     player_2 = Ball(
         position=(3 * cfg.WINDOW_WIDTH // 4 - 100, cfg.WINDOW_HEIGHT // 2),
         radius=cfg.PLAYER_BASE_RADIUS,
         color=cfg.BLUE,
-        velocity=(1, 9)
+        velocity=(1, 9),
+        health=1
     )
 
     arena = Arena(
@@ -36,6 +37,8 @@ if __name__ == "__main__":
         fighters=[player_1, player_2]
     )
 
+    arena.add_health_up()
+
     while True:
         clock.tick(cfg.FPS)
 
@@ -45,8 +48,13 @@ if __name__ == "__main__":
                 exit()
 
         screen.fill(cfg.BACKGROUND_COLOR)
-        arena.draw(screen)
         
-        arena.update_fighters(screen)
+        arena.draw(screen)
+        arena.update(screen)
 
         pygame.display.flip()
+
+        # --- Debugging output ---
+        # print player health
+        for i, fighter in enumerate(arena.fighters):
+            print(f"Fighter {i + 1} Health: {fighter.health}")

@@ -20,11 +20,13 @@ class Ball:
         """Draw the ball on the given screen."""
         pygame.draw.circle(screen, self.color, (int(self.position[0]), int(self.position[1])), self.radius)
 
+    def heal(self, amount):
+        """Increase the ball's health by the specified amount."""
+        self.health = min(self.health + amount, cfg.PLAYER_BASE_HEALTH)   
+
     def take_damage(self, amount):
         """Reduce the ball's health by the specified amount."""
-        self.health -= amount
-        if self.health < 0:
-            self.health = 0
+        self.health = max(self.health - amount, 0)
 
     def check_wall_collision(self, arena):
         """Check and handle collisions with the arena borders."""
